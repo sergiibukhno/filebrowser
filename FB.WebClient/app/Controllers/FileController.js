@@ -1,12 +1,12 @@
 ﻿(function () {
 
-    var FileController = function ($scope, $http) {
+    var FileController = function ($http) {
 
         var getInfo = function () {
 
             $http.get('http://localhost:56802/api/values').then(function (response) {
 
-                $scope.Info = response.data;
+                this.Info = response.data;
 
             });
         };
@@ -16,6 +16,6 @@
 
     };
 
-    myApp.controller("FileController", ["$scope", "$http", FileController]);
+    myApp.controller("FileController", ["$http", FileController]);
 
 }());

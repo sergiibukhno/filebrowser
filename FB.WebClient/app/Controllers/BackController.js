@@ -1,13 +1,13 @@
 ﻿(function () {
 
-    var BackController = function ($scope, $http, $routeParams) {
+    var BackController = function ($http, $routeParams) {
 
 
         var goback = function () {
 
             $http.put('http://localhost:56802/api/values').then(function (response) {
 
-                $scope.Info = response.data;
+                this.Info = response.data;
 
             });
         };
@@ -17,6 +17,6 @@
 
     };
 
-    myApp.controller("BackController", ["$scope", "$http", "$routeParams", BackController]);
+    myApp.controller("BackController", ["$http", "$routeParams", BackController]);
 
 }());

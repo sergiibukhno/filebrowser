@@ -1,6 +1,6 @@
 ﻿(function () {
 
-    var ForwardController = function ($scope, $http, $routeParams) {
+    var ForwardController = function ($http, $routeParams) {
 
 
         var dirName = $routeParams.OriginalPath;
@@ -8,7 +8,7 @@
 
             $http.get('http://localhost:56802/api/values' + '/' + dirName).then(function (response) {
 
-                $scope.Info = response.data;
+                this.Info = response.data;
 
             });
         };
@@ -18,6 +18,6 @@
 
     };
 
-    myApp.controller("ForwardController", ["$scope", "$http", "$routeParams", ForwardController]);
+    myApp.controller("ForwardController", ["$http", "$routeParams", ForwardController]);
 
 }());
