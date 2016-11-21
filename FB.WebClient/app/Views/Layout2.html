@@ -1,0 +1,33 @@
+﻿<div>
+    <div class="tableresult">
+        <table>
+            <tr>
+                <th><h3>Less 10Mb</h3></th>
+                <th><h3>10-50Mb</h3></th>
+                <th><h3>More 100Mb</h3></th>
+            </tr>
+            <tr>
+                <td><h4>{{Info.firstinfo}}</h4></td>
+                <td><h4>{{Info.secondinfo}}</h4></td>
+                <td><h4>{{Info.thirdinfo}}</h4></td>
+            </tr>
+        </table>
+    </div>
+    <br />
+    <br />
+    <h4><em>Current directory:</em> {{Info.currdir}}</h4>
+
+    <br />
+    <div id="" style="overflow-y: scroll; height:322px;width:550px;">
+
+
+        <h4><a href="#/Goback/{{Info.firstinfo}}">../</a></h4>
+        <div data-ng-repeat="info in Info.subdirect"><a href="#/Values/{{info.OriginalPath}}">{{info.OriginalPath}}</a>    </div>
+        <div data-ng-repeat="info2 in Info.files">{{info2.OriginalPath}} </div>
+
+
+
+
+    </div>
+
+</div>

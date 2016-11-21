@@ -1,0 +1,6 @@
+C:\Users\Sergiuz\Documents\Visual Studio 2013\FB.WebClient2\bin\FB.WebClient2.dll.config
+C:\Users\Sergiuz\Documents\Visual Studio 2013\FB.WebClient2\bin\FB.WebClient2.dll
+C:\Users\Sergiuz\Documents\Visual Studio 2013\FB.WebClient2\bin\FB.WebClient2.pdb
+C:\Users\Sergiuz\Documents\Visual Studio 2013\FB.WebClient2\obj\Debug\FB.WebClient2.csprojResolveAssemblyReference.cache
+C:\Users\Sergiuz\Documents\Visual Studio 2013\FB.WebClient2\obj\Debug\FB.WebClient2.dll
+C:\Users\Sergiuz\Documents\Visual Studio 2013\FB.WebClient2\obj\Debug\FB.WebClient2.pdb
