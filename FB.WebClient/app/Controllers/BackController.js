@@ -5,7 +5,7 @@
 
         var goback = function () {
 
-            $http.put('http://localhost:56802/api/values').then(function (response) {
+            $http.put('http://localhost:56802/api/BrowsingFiles').then(function (response) {
 
                 this.Info = response.data;
 

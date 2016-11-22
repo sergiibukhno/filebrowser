@@ -18,7 +18,7 @@ namespace TestEmpeek.WebService
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}",
-                defaults: new { controller = "Values"}
+                defaults: new { controller = "BrowsingFiles" }
             );
         }
     }

@@ -2,44 +2,29 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Web;
+using TestEmpeek.WebService.Models;
 
-namespace TestEmpeek.WebService.Models
+namespace TestEmpeek.WebService.DAL
 {
-    public class FileBrowser
+    public class FileBrowserDAL
     {
-        List<FileInfo> fileInfoList = new List<FileInfo>();
+        List<FileInfo> fileinfoList = new List<FileInfo>();
         List<string> log = new List<string>();
-        
 
 
         public void WalkDirectoryTree(DirectoryInfo root)
         {
             FileInfo[] files = null;
-            DirectoryInfo[] subDirs = null;
-
-
-            
-                files = root.GetFiles("*.*");
-            
-
+            files = root.GetFiles("*.*", SearchOption.AllDirectories);
             if (files != null)
             {
                 foreach (FileInfo fi in files)
                 {
 
-                    fileInfoList.Add(fi);
+                    fileinfoList.Add(fi);
                 }
 
-
-                subDirs = root.GetDirectories();
-
-                foreach (DirectoryInfo dirInfo in subDirs)
-                {
-
-                    WalkDirectoryTree(dirInfo);
-                }
             }
         }
 
@@ -49,7 +34,7 @@ namespace TestEmpeek.WebService.Models
             DirInfo mydir = new DirInfo();
             string directory = null;
 
-            if (_input!=null&&_input.Length!=0)
+            if (_input != null && _input.Length != 0)
             {
                 directory = _input;
             }
@@ -69,17 +54,13 @@ namespace TestEmpeek.WebService.Models
             try
             {
 
-            WalkDirectoryTree(di);
-            
+                WalkDirectoryTree(di);
                 mydir.subdirect = di.GetDirectories();
                 mydir.files = di.GetFiles();
 
-
-
-
                 List<double> mbinfo = new List<double>();
 
-                foreach (var convert in fileInfoList)
+                foreach (var convert in fileinfoList)
                 {
                     mbinfo.Add(convert.Length * 0.000001);
                 }
@@ -106,7 +87,7 @@ namespace TestEmpeek.WebService.Models
                 mydir.secondinfo = from10_count;
                 mydir.thirdinfo = more_100_count;
                 mydir.currdir = directory;
-                fileInfoList.Clear();
+                fileinfoList.Clear();
             }
             catch (Exception ex)
             {
@@ -116,5 +97,6 @@ namespace TestEmpeek.WebService.Models
             mydir.mylog = log;
             return mydir;
         }
+
     }
 }

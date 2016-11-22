@@ -6,7 +6,7 @@
         var dirName = $routeParams.OriginalPath;
         var getnewInfo = function () {
 
-            $http.get('http://localhost:56802/api/values' + '/' + dirName).then(function (response) {
+            $http.get('http://localhost:56802/api/BrowsingFiles' + '/' + dirName).then(function (response) {
 
                 this.Info = response.data;
 

@@ -4,7 +4,7 @@
 
         var getInfo = function () {
 
-            $http.get('http://localhost:56802/api/values').then(function (response) {
+            $http.get('http://localhost:56802/api/BrowsingFiles').then(function (response) {
 
                 this.Info = response.data;
 
