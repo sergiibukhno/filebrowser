@@ -3,9 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2013 for Web
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FB.WebApp", "TestEmpeek.WebService\FB.WebApp.csproj", "{4A0ED362-12C9-42A9-BA7D-018621C64BB6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FB.WebApp", "FB.WebApp\FB.WebApp.csproj", "{4A0ED362-12C9-42A9-BA7D-018621C64BB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FB.WebClient", "FB.WebClient2\FB.WebClient.csproj", "{004B0631-BA37-45B1-9B00-3B9EA073D654}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FB.WebClient", "FB.WebClient\FB.WebClient.csproj", "{5A4D79A1-C444-4003-8729-B058E677AA14}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FB.WebApp.Bll", "FB.WebApp.Bll\FB.WebApp.Bll.csproj", "{7D88AF50-5413-48EF-A44B-731AFCD68166}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FB.WebApp.Dal", "FB.WebApp.Dal\FB.WebApp.Dal.csproj", "{32E7AECE-6276-4421-B183-E974EAA71D9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FB.Models", "FB.Models\FB.Models.csproj", "{7360F419-5AAF-4EA2-BE18-00FC829994CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +23,22 @@ Global
 		{4A0ED362-12C9-42A9-BA7D-018621C64BB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A0ED362-12C9-42A9-BA7D-018621C64BB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A0ED362-12C9-42A9-BA7D-018621C64BB6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{004B0631-BA37-45B1-9B00-3B9EA073D654}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{004B0631-BA37-45B1-9B00-3B9EA073D654}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{004B0631-BA37-45B1-9B00-3B9EA073D654}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{004B0631-BA37-45B1-9B00-3B9EA073D654}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A4D79A1-C444-4003-8729-B058E677AA14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A4D79A1-C444-4003-8729-B058E677AA14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A4D79A1-C444-4003-8729-B058E677AA14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A4D79A1-C444-4003-8729-B058E677AA14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D88AF50-5413-48EF-A44B-731AFCD68166}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D88AF50-5413-48EF-A44B-731AFCD68166}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D88AF50-5413-48EF-A44B-731AFCD68166}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D88AF50-5413-48EF-A44B-731AFCD68166}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32E7AECE-6276-4421-B183-E974EAA71D9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32E7AECE-6276-4421-B183-E974EAA71D9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32E7AECE-6276-4421-B183-E974EAA71D9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32E7AECE-6276-4421-B183-E974EAA71D9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7360F419-5AAF-4EA2-BE18-00FC829994CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7360F419-5AAF-4EA2-BE18-00FC829994CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7360F419-5AAF-4EA2-BE18-00FC829994CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7360F419-5AAF-4EA2-BE18-00FC829994CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

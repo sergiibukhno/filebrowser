@@ -1,15 +1,14 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // Управление общими сведениями о сборке осуществляется следующим образом
 // набора атрибутов. Измените значения этих атрибутов для изменения сведений,
 // связанных с этой сборкой.
-[assembly: AssemblyTitle("TestEmpeek.WebService")]
+[assembly: AssemblyTitle("FB.WebApp")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TestEmpeek.WebService")]
+[assembly: AssemblyProduct("FB.WebApp")]
 [assembly: AssemblyCopyright("© , 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
