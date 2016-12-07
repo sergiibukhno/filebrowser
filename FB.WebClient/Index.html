@@ -6,12 +6,13 @@
     <script src="Scripts/angular.js"></script>
     <script src="app/Scripts/app.js"></script>    
     <script src="app/Scripts/ConstService.js"></script>
+    <script src="app/Scripts/ViewContentDirective.js"></script>
     <script src="app/Controllers/ClientSideController.js"></script>   
     <link href="Content/Site.css" rel="stylesheet" />
 </head>
-<body data-ng-app="myApp" >
+<body data-ng-app="myApp" ng-controller="ClientSideController">
 
-    <div class="myView" ng-controller="ClientSideController">
+    <div class="myView">
         <table>
             <tr>
                 <th>Less 10Mb</th>
@@ -34,7 +35,7 @@
         <br />
         <br />
 
-        <div style="height:322px;width:548px;border:1px solid lightgray;">
+        <div class="resultBlock">
             <div class="infoBlock">
                 <div ng-repeat="drive in resultDrives">
                     <a href="#" ng-click="getDriveDirs(drive)">{{drive}}</a>
@@ -44,10 +45,13 @@
                     <a href="#" ng-click="getDirs(info.FullPath)">{{info.OriginalPath}}</a>
                 </div>
                 <div data-ng-repeat="info in results.files">
-                    <p>{{info.OriginalPath}}</p>
+                    <p ng-click="getContent(info.FullPath)">{{info.OriginalPath}}</p>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="contentViewer">
+        <ng-content requested-extension="fileextension" server-request="request"></ng-content>
     </div>
 </body>
 </html>

@@ -1,6 +1,6 @@
 using FB.Models;
-using FB.WebApp.Bll;
-using FB.WebApp.Dal;
+using FB.WebApp.Core;
+using FB.WebApp.DataAccess;
 using Microsoft.Practices.Unity;
 using System.Web.Http;
 using Unity.WebApi;

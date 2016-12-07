@@ -1,33 +1,33 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
 using FB.Models;
-using FB.WebApp.Bll;
+using FB.WebApp.Core;
 
 namespace FB.WebApp.Controllers
 {
     public class DriveController : ApiController
     {
-        private IBrowserService bs;
+        private IBrowserService _browserService;
         private IDirInfo dirinfo;
 
-        public DriveController(IBrowserService bll,IDirInfo dirInfo)
+        public DriveController(IBrowserService browserService, IDirInfo dirInfo)
         {
-            bs = bll;
+            _browserService = browserService;
             dirinfo = dirInfo;
         }
-        
-        public List<string> Get()
+
+        public IHttpActionResult Get()
         {           
             List<string> driveNames = new List<string>();
-            driveNames = bs.ReturnDrives();
-            return driveNames;
+            driveNames = _browserService.ReturnDrives();
+            return Ok(driveNames);
         }
 
-        public IDirInfo Get(string id)
+        public IHttpActionResult Get(string id)
         {
-            string decodedInput = bs.DecodeString(id);
-            dirinfo = bs.ReturnFilesDirs(decodedInput);
-            return dirinfo;
+            string decodedInput = _browserService.DecodeString(id);
+            dirinfo = _browserService.ReturnFilesDirs(decodedInput);
+            return Ok(dirinfo);
         }       
     }
 }

@@ -43,10 +43,10 @@
       <HintPath>..\FB.Models\bin\Debug\FB.Models.dll</HintPath>
     </Reference>
     <Reference Include="FB.WebApp.Bll">
-      <HintPath>..\FB.WebApp.Bll\bin\Debug\FB.WebApp.Bll.dll</HintPath>
+      <HintPath>..\FB.WebApp.Core\bin\Debug\FB.WebApp.Bll.dll</HintPath>
     </Reference>
     <Reference Include="FB.WebApp.Dal">
-      <HintPath>..\FB.WebApp.Dal\bin\Debug\FB.WebApp.Dal.dll</HintPath>
+      <HintPath>..\FB.WebApp.DataAccess\bin\Debug\FB.WebApp.Dal.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
@@ -97,6 +97,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CountController.cs" />
     <Compile Include="Controllers\DriveController.cs" />
+    <Compile Include="Controllers\FileContentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

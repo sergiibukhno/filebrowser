@@ -1,7 +1,7 @@
 ﻿(function () {
 
     var ClientSideController = function ($scope, $http, ConstService) {
-        
+
         var getDrives = function () {
             $http.get(ConstService.serverApiConst+ConstService.driveControllerConst).then(function (response) {
                 $scope.resultDrives = response.data;
@@ -52,10 +52,17 @@
             }
         }
 
+        var getContent = function (dir) {
+            $scope.fileextension = dir.slice(dir.lastIndexOf("\.") + 1, dir.length);
+            var encodedDir = dir.replace(/:/g, "d0td0t").replace(/\\/g, "b3cks1").replace(/\./g, "t0d").replace(/#/g, "sh4");
+            $scope.request = ConstService.serverApiConst + ConstService.fileControllerConst + '/' + encodedDir;
+        };
+
         $scope.getDrives = getDrives;        
         $scope.getDirs = getDirs;
         $scope.getDriveDirs = getDriveDirs;
         $scope.goDirBack = goDirBack;
+        $scope.getContent = getContent;
         getDrives();
     };
 

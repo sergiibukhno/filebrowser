@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
-using FB.WebApp.Dal;
+using FB.WebApp.DataAccess;
 using System.IO;
 using FB.Models;
+using System.Net.Http;
 
-namespace FB.WebApp.Bll
+namespace FB.WebApp.Core
 {
     public interface IBrowserService
     {
@@ -11,22 +12,23 @@ namespace FB.WebApp.Bll
         List<int> Countfiles(string input);
         IDirInfo ReturnFilesDirs(string input);
         string DecodeString(string input);
+        HttpResponseMessage GetContent(string input);
     }
     
     public class BrowserService:IBrowserService
     {
-        private IFileRepository fr;
+        private IFileRepository _fileRepository;
         private IDirInfo dirinfo;
-        
-        public BrowserService(IFileRepository filerep,IDirInfo dirInfo)
+
+        public BrowserService(IFileRepository fileRepository, IDirInfo dirInfo)
         {
-            fr = filerep;
+            _fileRepository = fileRepository;
             dirinfo = dirInfo;
         }
         
         public List<string> ReturnDrives()
         {
-            DriveInfo[] myDrives = fr.GetAllDrives();
+            DriveInfo[] myDrives = _fileRepository.GetAllDrives();
             List<string> driveNames = new List<string>();
             
             foreach (var item in myDrives)
@@ -42,13 +44,13 @@ namespace FB.WebApp.Bll
 
         public List<int> Countfiles(string input)
         {
-            List<int> myFiles = fr.GetAllFiles(input);
+            List<int> myFiles = _fileRepository.GetAllFiles(input);
             return myFiles;            
         }
 
         public IDirInfo ReturnFilesDirs(string input)
         {
-            dirinfo = fr.GetFilesDirs(input);
+            dirinfo = _fileRepository.GetFilesDirs(input);
             dirinfo.currdir = input;
             return dirinfo;
         }
@@ -57,6 +59,12 @@ namespace FB.WebApp.Bll
         {
             input = input.Replace("d0td0t", ":").Replace("b3cks1", "\\").Replace("t0d", ".").Replace("sh4", "#");
             return input;
+        }
+
+        public HttpResponseMessage GetContent(string input)
+        {
+            HttpResponseMessage content = _fileRepository.GetFileContent(input);
+            return content;
         }
     }
 }

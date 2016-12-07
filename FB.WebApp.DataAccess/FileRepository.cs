@@ -1,14 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using FB.Models;
+using System;
+using System.Net.Http;
+using System.Net;
+using System.Net.Http.Headers;
 
-namespace FB.WebApp.Dal
+namespace FB.WebApp.DataAccess
 {
     public interface IFileRepository
     {
         IDirInfo GetFilesDirs(string input);
         List<int> GetAllFiles(string input);
         DriveInfo[] GetAllDrives();
+        HttpResponseMessage GetFileContent(string input);
     }
     
     public class FileRepository:IFileRepository
@@ -22,9 +27,9 @@ namespace FB.WebApp.Dal
 
         public IDirInfo GetFilesDirs(string input)
         {
-            DirectoryInfo di = new DirectoryInfo(input);
-            dirinfo.subdirect = di.GetDirectories();
-            dirinfo.files = di.GetFiles();
+            DirectoryInfo directoryinfo = new DirectoryInfo(input);
+            dirinfo.subdirect = directoryinfo.GetDirectories();
+            dirinfo.files = directoryinfo.GetFiles();
             return dirinfo;
         }
 
@@ -44,8 +49,17 @@ namespace FB.WebApp.Dal
             while (stack.Count > 0)
             {
                 dir = stack.Pop();
-                DirectoryInfo di = new DirectoryInfo(dir);
-                files = di.GetFiles();
+                DirectoryInfo directoryinfo = new DirectoryInfo(dir);
+                
+                try
+                {
+                    files = directoryinfo.GetFiles();
+                }
+                catch (Exception ex)
+                {
+                    continue;
+                }
+                
                 foreach (var file in files)
                 {
                     fileList.Add(file);
@@ -91,6 +105,26 @@ namespace FB.WebApp.Dal
         {
             DriveInfo[] allDrives = DriveInfo.GetDrives();           
             return allDrives;
-        }        
+        }
+
+        public HttpResponseMessage GetFileContent(string input)
+        {
+            HttpResponseMessage response = new HttpResponseMessage();
+            response.Content = new StreamContent(new FileStream(input, FileMode.Open, FileAccess.Read));
+            
+            if (input.EndsWith("pdf"))
+            {
+                response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/pdf");
+            }
+
+            if (input.EndsWith("doc"))
+            {
+                response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/msword");
+                response.Content.Headers.ContentDisposition = new System.Net.Http.Headers.ContentDispositionHeaderValue("inline");
+            }
+
+            return response;
+        }
+
     }
 }

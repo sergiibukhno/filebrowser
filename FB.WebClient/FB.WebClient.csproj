@@ -43,6 +43,7 @@
   <ItemGroup>
     <Content Include="app\Controllers\ClientSideController.js" />
     <Content Include="app\Scripts\ConstService.js" />
+    <Content Include="app\Scripts\ViewContentDirective.js" />
     <Content Include="Content\Site.css" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">

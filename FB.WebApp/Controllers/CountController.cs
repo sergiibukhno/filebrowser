@@ -1,24 +1,24 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
-using FB.WebApp.Bll;
+using FB.WebApp.Core;
 
 namespace FB.WebApp.Controllers
 {    
     public class CountController : ApiController
     {
-        private IBrowserService bs;
-        
-        public CountController(IBrowserService bll)
+        private IBrowserService _browserService;
+
+        public CountController(IBrowserService browserService)
         {
-            bs = bll;
+            _browserService = browserService;
         }
-        
-        public List<int> Get(string id)
+
+        public IHttpActionResult Get(string id)
         {
             List<int> countedFiles = new List<int>();
-            string decodedInput = bs.DecodeString(id);
-            countedFiles = bs.Countfiles(decodedInput);
-            return countedFiles;
+            string decodedInput = _browserService.DecodeString(id);
+            countedFiles = _browserService.Countfiles(decodedInput);
+            return Ok(countedFiles);
         }        
     }
 }

@@ -33,9 +33,17 @@ font-weight:bold;
 }
 
 .myView{
-    margin-right: auto; margin-left: auto; margin-top:70px;
+    margin-left: 222px; margin-top:70px;
     width:550px;
-    overflow:hidden;  
+    overflow:hidden;
+    float:left;
+}
+
+.contentViewer{
+    width:550px;
+    float:right;
+    margin-right:222px;
+    margin-top:70px;
 }
 
 u{
@@ -61,4 +69,14 @@ u{
     text-decoration:underline;
     color:blue;
     margin: 0;
+}
+
+img{
+    max-width:550px;
+}
+
+.resultBlock{
+    height:322px;
+    width:548px;
+    border:1px solid lightgray;
 }

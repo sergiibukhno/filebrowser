@@ -34,6 +34,7 @@
       <HintPath>..\FB.Models\bin\Debug\FB.Models.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FileRepository.cs" />

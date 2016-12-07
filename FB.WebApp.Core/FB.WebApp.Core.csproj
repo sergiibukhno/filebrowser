@@ -34,9 +34,10 @@
       <HintPath>..\FB.Models\bin\Debug\FB.Models.dll</HintPath>
     </Reference>
     <Reference Include="FB.WebApp.Dal">
-      <HintPath>..\FB.WebApp.Dal\bin\Debug\FB.WebApp.Dal.dll</HintPath>
+      <HintPath>..\FB.WebApp.DataAccess\bin\Debug\FB.WebApp.Dal.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
