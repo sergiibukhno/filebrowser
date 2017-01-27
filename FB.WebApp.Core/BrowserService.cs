@@ -12,7 +12,7 @@ namespace FB.WebApp.Core
         List<int> Countfiles(string input);
         IDirInfo ReturnFilesDirs(string input);
         string DecodeString(string input);
-        HttpResponseMessage GetContent(string input);
+        StreamContent GetContent(string input);
     }
     
     public class BrowserService:IBrowserService
@@ -61,10 +61,10 @@ namespace FB.WebApp.Core
             return input;
         }
 
-        public HttpResponseMessage GetContent(string input)
+        public StreamContent GetContent(string input)
         {
-            HttpResponseMessage content = _fileRepository.GetFileContent(input);
-            return content;
+            var responseContent = _fileRepository.GetFileContent(input);
+            return responseContent;
         }
     }
 }

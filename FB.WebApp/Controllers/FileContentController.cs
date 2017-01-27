@@ -1,12 +1,8 @@
 ﻿using FB.WebApp.Core;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Web;
 using System.Web.Http;
 
 namespace FB.WebApp.Controllers
@@ -27,8 +23,21 @@ namespace FB.WebApp.Controllers
             else
             {
                 id = _browserService.DecodeString(id);
-                HttpResponseMessage content = _browserService.GetContent(id);
-                return content;
+                HttpResponseMessage response = new HttpResponseMessage();
+                response.Content = _browserService.GetContent(id);
+
+                if (id.EndsWith("pdf"))
+                {
+                    response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/pdf");
+                }
+
+                if (id.EndsWith("doc"))
+                {
+                    response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/msword");
+                    response.Content.Headers.ContentDisposition = new System.Net.Http.Headers.ContentDispositionHeaderValue("inline");
+                }
+
+                return response;
             }                     
         }
     }

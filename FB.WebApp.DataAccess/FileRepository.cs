@@ -3,8 +3,6 @@ using System.IO;
 using FB.Models;
 using System;
 using System.Net.Http;
-using System.Net;
-using System.Net.Http.Headers;
 
 namespace FB.WebApp.DataAccess
 {
@@ -13,7 +11,7 @@ namespace FB.WebApp.DataAccess
         IDirInfo GetFilesDirs(string input);
         List<int> GetAllFiles(string input);
         DriveInfo[] GetAllDrives();
-        HttpResponseMessage GetFileContent(string input);
+        StreamContent GetFileContent(string input);
     }
     
     public class FileRepository:IFileRepository
@@ -107,24 +105,10 @@ namespace FB.WebApp.DataAccess
             return allDrives;
         }
 
-        public HttpResponseMessage GetFileContent(string input)
+        public StreamContent GetFileContent(string input)
         {
-            HttpResponseMessage response = new HttpResponseMessage();
-            response.Content = new StreamContent(new FileStream(input, FileMode.Open, FileAccess.Read));
-            
-            if (input.EndsWith("pdf"))
-            {
-                response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/pdf");
-            }
-
-            if (input.EndsWith("doc"))
-            {
-                response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/msword");
-                response.Content.Headers.ContentDisposition = new System.Net.Http.Headers.ContentDispositionHeaderValue("inline");
-            }
-
-            return response;
+            var responseContent = new StreamContent(new FileStream(input, FileMode.Open, FileAccess.Read));
+            return responseContent;
         }
-
     }
 }
